@@ -1,0 +1,45 @@
+<div>
+  <div style="text-align: end;">
+    <ion-item class="input-search">
+      <ion-label position="stacked">Search:</ion-label>
+      <ion-input placeholder="Type to filter the name column..." (keyup)="updateFilter($event)" ></ion-input>
+    </ion-item>
+  </div>
+  
+
+  
+  <div style="float:left;width:95%">
+    
+   <ngx-datatable
+      style="width: 95%"
+      class="bootstrap"
+      [rows]="rows"
+      [columnMode]="ColumnMode.force"
+      [headerHeight]="'auto'"
+      [footerHeight]="'auto'"
+      [rowHeight]="'auto'"
+      [limit]="5"
+      [selected]="selected"
+      [selectionType]="SelectionType.checkbox"
+      [selectAllRowsOnPage]="false"
+      [displayCheck]="displayCheck"
+        [scrollbarH]="true"
+      (activate)="onActivate($event)"
+      (select)="onSelect($event)"
+    >
+      <ngx-datatable-column
+      style="margin: 5px;"
+        [width]="30"
+        [sortable]="false"
+        [canAutoResize]="false"
+        [draggable]="true"
+        [resizeable]="false"
+        [headerCheckboxable]="true"
+        [checkboxable]="true"
+      >
+      </ngx-datatable-column>
+      <ngx-datatable-column *ngFor="let column of columns" [name]='column' ></ngx-datatable-column>
+
+    </ngx-datatable>
+  </div> 
+</div>

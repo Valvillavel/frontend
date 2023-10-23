@@ -1,0 +1,85 @@
+<ion-header>
+</ion-header>
+
+<ion-content>
+  <div class="main_content_div">
+    <div class="user_div">
+      <div class="first_div">
+        <ion-label class="welcome">Graphics</ion-label>
+        <ion-label class="username">Measure</ion-label>
+      </div>
+    </div>
+
+    <div class="content_div">
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="12">
+            <div>
+              <ion-list  class="ion-form" [formGroup]="registerForm" #formDirective="ngForm" >
+                <ion-item>
+                  <ion-label slot="start" position="stacked">Nombre</ion-label>
+                  <div class="input-group">
+                    <ion-input placeholder="" autocapitalize inputmode="text" formControlName="nombre"></ion-input>
+                  </div>
+                </ion-item>
+                <ion-item>
+                  <ion-label slot="start" position="stacked">Edad</ion-label>
+                  <ion-input placeholder="" formControlName="edad"type="number"></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-label slot="start" position="stacked">Sexo</ion-label>
+                  <ion-input placeholder="" formControlName="sexo" type="text"></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-label slot="start" position="stacked">Peso</ion-label>
+                  <ion-input placeholder="" formControlName="peso"type="number"></ion-input>
+                </ion-item>
+                
+                
+              </ion-list>
+            </div>
+          </ion-col>
+
+        </ion-row>
+        <ion-row *ngIf="medir">
+          <ion-col size="4">
+            <div class="chart">             
+            </div>
+          </ion-col>
+
+          <ion-col size="4">
+            <div >
+                           
+            </div>
+          </ion-col>
+
+          
+
+        </ion-row>
+        <ion-button color="light" (click)="ValoresReales()">Medir</ion-button>
+        <div *ngIf="medir" class="col-md-9">
+          <h2 class="heading">Map</h2>
+          <hr/>
+        <div id="map"></div>
+      </div>
+
+        
+        
+
+        <ion-row>
+          <section class="section-buttons">
+            <ion-button *ngIf="!edit && medir" class="button" type="submit"[disabled]="registerForm.invalid" (click)="savePatient(registerForm.value,formDirective)">Guardar</ion-button>
+            <ion-button *ngIf="edit &&  medir" class="button" type="submit"[disabled]="registerForm.invalid" (click)="editPatient(registerForm.value,formDirective)">Actualizar</ion-button>
+            <ion-button color="light"[routerLink]="['/home']">Cancelar</ion-button>
+            
+          </section>
+
+        </ion-row>
+
+      </ion-grid>
+    </div>
+  </div>
+
+  
+
+</ion-content>
