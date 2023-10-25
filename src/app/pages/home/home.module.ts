@@ -8,6 +8,7 @@ import { ServiceService } from 'src/app/services/service.service';
 import { DataTableComponent } from 'src/app/components/data-table/data-table.component';
 import { HomePageRoutingModule } from './home-routing.module';
 import { HighchartsService } from 'src/app/services/highcharts.service';
+import { MapComponent } from 'src/app/components/map/map.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { HighchartsService } from 'src/app/services/highcharts.service';
   ],
   declarations: [
     HomePage,
-    DataTableComponent
+    DataTableComponent,
+    MapComponent
   ],
   providers:[ServiceService, HighchartsService],
   schemas:[CUSTOM_ELEMENTS_SCHEMA]
