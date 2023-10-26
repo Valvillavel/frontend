@@ -1,5 +1,5 @@
 ///<reference path="../../../../node_modules/@types/googlemaps/index.d.ts"/>
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-map',
@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./map.component.scss'],
 })
 export class MapComponent implements OnInit {
+  @Input() latini:any;
+  @Input() latfin:any;
+  @Input() lonini:any;
+  @Input() lonfin:any;
 
   constructor() { }
   ngOnInit(): void {

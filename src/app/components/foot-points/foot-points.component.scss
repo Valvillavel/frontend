@@ -1,24 +1,25 @@
 ion-grid {
-    padding-top: 10%;
-    --ion-grid-padding: 1%;
+    padding-left: 15%;
+    padding-top: 50%;
+    --ion-grid-padding: 2%;
 
-  --ion-grid-padding-xs: 1%;
-  --ion-grid-padding-sm: 1%;
-  --ion-grid-padding-md: 1%;
-  --ion-grid-padding-lg: 1%;
-  --ion-grid-padding-xl: 1%;
+  --ion-grid-padding-xs: 2%;
+  --ion-grid-padding-sm: 2%;
+  --ion-grid-padding-md: 2%;
+  --ion-grid-padding-lg: 2%;
+  --ion-grid-padding-xl: 2%;
 
-  --ion-grid-column-padding: 2%;
+  --ion-grid-column-padding: 4%;
 
-  --ion-grid-column-padding-xs: 2%;
-  --ion-grid-column-padding-sm: 2%;
-  --ion-grid-column-padding-md: 2%;
-  --ion-grid-column-padding-lg: 2%;
-  --ion-grid-column-padding-xl: 2%;
+  --ion-grid-column-padding-xs: 4%;
+  --ion-grid-column-padding-sm: 4%;
+  --ion-grid-column-padding-md: 4%;
+  --ion-grid-column-padding-lg: 4%;
+  --ion-grid-column-padding-xl: 4%;
     
 }
 ion-col {
-    background-color: #135d54;
+    background-color: #29996a;
     border: solid 1px #fff;
     color: #fff;
     text-align: center;
@@ -26,9 +27,11 @@ ion-col {
     
 }
 ion-row{
-    padding-top: 3%;
+    padding-top: 5%;
    
 }
 .content{
-    
+    background-image: url('../../../assets/img/pie2.png');
+    width: 199px;
+    height: 400px;
 }

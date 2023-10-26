@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-foot-points',
@@ -6,9 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./foot-points.component.scss'],
 })
 export class FootPointsComponent implements OnInit {
+  @Input() listpunts:any;
 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    document.getElementById('a').style.background='#ff0000'
+    if(this.listpunts==1){
+      document.getElementById('a').style.background='#ff0000';
+    }
+  }
 
 }
