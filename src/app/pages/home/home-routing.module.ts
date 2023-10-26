@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomePage } from './home.page';
+import { FootPointsComponent } from 'src/app/components/foot-points/foot-points.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,10 @@ const routes: Routes = [
   {
     path:'examinar',
     loadChildren: () => import('../inspeccionar/inspeccionar.module').then( m => m.InspeccionarPageModule)
+  },
+  {
+    path:'foot',
+    component:FootPointsComponent
   }
 ];
 

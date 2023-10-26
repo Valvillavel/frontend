@@ -11,6 +11,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { ChartModule } from '@syncfusion/ej2-angular-charts';
 
 import { HighchartsService } from 'src/app/services/highcharts.service';
+import { MapComponent } from 'src/app/components/map/map.component';
 
 @NgModule({
   imports: [
@@ -23,7 +24,8 @@ import { HighchartsService } from 'src/app/services/highcharts.service';
     NgxChartsModule
   ],
   declarations: [
-    GraphicsPage
+    GraphicsPage,
+    MapComponent
   ],
   providers:[
     ServiceService,

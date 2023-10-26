@@ -14,7 +14,7 @@ export class InspeccionarPage implements OnInit {
   patientData:any={
     nombre:'',
     edad: '',
-    sexo: '',
+    genero: '',
     peso: '',
     gpx: '',
     details: ''
@@ -34,7 +34,7 @@ export class InspeccionarPage implements OnInit {
   ngOnInit() {
       this.patientData.nombre = this.router.getCurrentNavigation().extras.state.data.nombre;
       this.patientData.edad = this.router.getCurrentNavigation().extras.state.data.edad;
-      this.patientData.sexo = this.router.getCurrentNavigation().extras.state.data.sexo;
+      this.patientData.genero = this.router.getCurrentNavigation().extras.state.data.genero;
       this.patientData.gpx = this.router.getCurrentNavigation().extras.state.data.gpx;
       this.patientData.details = this.router.getCurrentNavigation().extras.state.data.details;
 

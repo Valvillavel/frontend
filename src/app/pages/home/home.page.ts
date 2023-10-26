@@ -24,7 +24,7 @@ export class HomePage {
 
   ngOnInit() {
     this.loadDataPatients();
-    this.columns=["Nombre","Edad","Sexo"]
+    this.columns=["Nombre","Edad","Genero"]
   }
   ionViewWillEnter(){
     this.loadDataPatients() 

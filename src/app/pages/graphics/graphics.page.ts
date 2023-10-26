@@ -14,16 +14,10 @@ export class GraphicsPage implements OnInit {
   medir=false; 
   patientData: any;
   edit: boolean = false;
-
-  peso:any;
-  edad:any;
-  gpx:any;
-  details:any;
-  sexo:any;
-  single:any={
-    name:'',
-    series:''
-  }
+  pos:any;
+  puntos:any;
+  listpos:any;
+  listpuntos:any;
   distancia=[30,49,45,34]
   @Output() messageEvent = new EventEmitter<string>();
   
@@ -32,16 +26,14 @@ export class GraphicsPage implements OnInit {
     private activateRoute: ActivatedRoute,
     private formBuilder: FormBuilder,
     private router: Router,
-    private mapService: HighchartsService,
     private service: ServiceService,
     public dtabase:AngularFireDatabase
   ) {  
-    this.leerMediciones();
    }
   registerForm = this.formBuilder.group({
     nombre: ['', Validators.required],
     edad: [''],
-    sexo: [''],
+    genero: [''],
     peso: [''],
     gpx: [''],
     details: [''],
@@ -57,14 +49,24 @@ export class GraphicsPage implements OnInit {
   leerMediciones(){
     const puntos='puntos/'
     this.dtabase.list(puntos).valueChanges().subscribe(res =>{
-      
+      this.listpuntos=res;
+      this.savePuntos(this.listpuntos);      
+    })
+    const gps='localizacion/'
+    this.dtabase.list(puntos).valueChanges().subscribe(res =>{
+      this.listpos=res;
+      this.savePuntos(this.listpos); 
     })
    
   }
-  //saveFlujo(val){
-  //  this.flujo=val;
-  //  this.registerForm.get('flujo').setValue(this.flujo)
-  //}
+  savePuntos(val){
+    this.puntos=val;
+    this.registerForm.get('gpx').setValue(this.puntos)
+  }
+  savePosicion(val){
+    this.pos=val;
+    this.registerForm.get('gpx').setValue(this.pos)
+  }
   
   savePatient(data: any, formDirective: FormGroupDirective) {
     console.log(data)
@@ -72,14 +74,16 @@ export class GraphicsPage implements OnInit {
       formDirective.resetForm();
       this.router.navigate(['/home']);
     });
-    const vol='puntos/'
-    this.dtabase.object(vol).set(0);
+    const piepoint='puntos/'
+    this.dtabase.object(piepoint).set(0);
+    const posiciones='localizacion/'
+    this.dtabase.object(posiciones).set(0);
 
   }
   updatepatientData() {
     this.registerForm.get('nombre').setValue(this.patientData?.nombre);
     this.registerForm.get('edad').setValue(this.patientData?.edad);
-    this.registerForm.get('sexo').setValue(this.patientData?.sexo);
+    this.registerForm.get('genero').setValue(this.patientData?.genero);
     this.registerForm.get('peso').setValue(this.patientData?.peso);
   }
   editPatient(data: any, formDirective: FormGroupDirective) {
@@ -89,13 +93,15 @@ export class GraphicsPage implements OnInit {
         formDirective.resetForm();
         this.router.navigate(['/home']);
       });
-    const vol='puntos/'
-    this.dtabase.object(vol).set(0);
+      const piepoint='puntos/'
+      this.dtabase.object(piepoint).set(0);
+      const posiciones='localizacion/'
+      this.dtabase.object(posiciones).set(0);
 
   }
   ValoresReales(){
     this.medir=true;
-    
+    this.leerMediciones();
   }
 
 

@@ -27,8 +27,8 @@
                   <ion-input placeholder="" formControlName="edad"type="number"></ion-input>
                 </ion-item>
                 <ion-item>
-                  <ion-label slot="start" position="stacked">Sexo</ion-label>
-                  <ion-input placeholder="" formControlName="sexo" type="text"></ion-input>
+                  <ion-label slot="start" position="stacked">Genero</ion-label>
+                  <ion-input placeholder="" formControlName="genero" type="text"></ion-input>
                 </ion-item>
                 <ion-item>
                   <ion-label slot="start" position="stacked">Peso</ion-label>
@@ -57,11 +57,16 @@
 
         </ion-row>
         <ion-button color="light" (click)="ValoresReales()">Medir</ion-button>
-        <div *ngIf="medir" class="col-md-9">
+        <div *ngIf="medir" >
           <h2 class="heading">Map</h2>
           <hr/>
-        <div id="map"></div>
-      </div>
+          <app-map></app-map>
+        </div>
+        <div *ngIf="medir" >
+          <h2 class="heading">Puntos del pie</h2>
+          <hr/>
+          
+        </div>
 
         
         
