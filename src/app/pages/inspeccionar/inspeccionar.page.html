@@ -47,7 +47,7 @@
               </ion-card-header>
             
               <ion-card-content>
-                <app-foot-points></app-foot-points>
+                <app-foot-points [listpunts]="patientData.details"></app-foot-points>
                 {{patientData.details}}
               </ion-card-content>
             </ion-card>
@@ -62,7 +62,7 @@
     <h2 class="heading">Map</h2>
     
   </div>
-  <app-map></app-map>
+  <app-map [latfin]="patientData.gpx" [latini]="patientData.gpx" [lonfin]="patientData.gpx"></app-map>
   <ion-row>
     <section class="section-buttons">
       <ion-button color="light"[routerLink]="['/home']">Ver lista de Pacientes</ion-button>

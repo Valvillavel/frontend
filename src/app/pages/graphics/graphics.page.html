@@ -60,12 +60,12 @@
         <div *ngIf="medir" >
           <h2 class="heading">Map</h2>
           <hr/>
-          <app-map></app-map>
+          <app-map [latfin]="listpos" [latini]="listpos" [lonfin]="listpos"></app-map>
         </div>
         <div *ngIf="medir" >
           <h2 class="heading">Puntos del pie</h2>
           <hr/>
-          
+          <app-foot-points [listpunts]="listpuntos"></app-foot-points>
         </div>
 
         
